@@ -2,7 +2,7 @@
 
 $projectName = "WIT08AZ2zad1"
 
-Install-Module -Name AZ -AllowClobber -Scope AllUsers 
+# Install-Module -Name AZ -AllowClobber -Scope AllUsers 
 
 # logowanie interaktywne przy każdym uruchomieniu
 $Credentials = Get-Credential
