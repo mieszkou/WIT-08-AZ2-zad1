@@ -2,10 +2,10 @@
 
 $projectName = "WIT08AZ2zad1"
 
-# Install-Module -Name AZ -AllowClobber -Scope AllUsers 
+Install-Module -Name AZ -AllowClobber -Scope AllUsers 
 
 # logowanie interaktywne przy każdym uruchomieniu
-# $Credentials = Get-Credential
+$Credentials = Get-Credential
 
 # ... lub automatyczne logowanie na potrzeby testowania
 # utworzenie pliku z login/haslo do azure
@@ -15,7 +15,7 @@ $projectName = "WIT08AZ2zad1"
 # oddczytanie zapisanych danych z pliku
 # $Credentials = Import-CliXml "credentials_office_wit.xml"
 
-# Connect-AzAccount -Credential $Credentials
+Connect-AzAccount -Credential $Credentials
 
 # ... sprawdzi liczbę dostępnych regionów
 $regionsAll  = Get-AzLocation 
@@ -72,3 +72,6 @@ function Remove-CreatedRGshort {
 
 # Koniec skryptu
 Write-Host "-----Koniec skryptu"
+
+Write-Host "Naciśnij dowolny klawisz 🎹🎹🎹🎹🎹🎹"
+Write-Host -Object ('{0}' -f [System.Console]::ReadKey().Key.ToString());
