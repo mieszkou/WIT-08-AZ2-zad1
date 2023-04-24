@@ -37,7 +37,7 @@ $resourceGroups = @()
 
 foreach ($region in $regionsEuro) {
     $resourceGroupName = "RG-$projectName-$($region.DisplayName)" -replace '[^-\w\._\(\)]', '-'
-    $wynik = New-AzResourceGroup -Name $resourceGroupName -Location $region.Location
+    $null = New-AzResourceGroup -Name $resourceGroupName -Location $region.Location
     $resourceGroups += [PSCustomObject]@{
         groupName = $resourceGroupName
         Region = $region.DisplayName
@@ -57,7 +57,7 @@ Write-Host "-----Kasuje obiekty"
 function Remove-CreatedRG {
     param ([System.Collections.Generic.List[PSObject]] $resourceGroups)
     foreach ($group in $resourceGroups) {
-        Write-Host "$($group.groupName) -> 🗑️"
+        # Write-Host "$($group.groupName) -> 🗑️"
         $null = Remove-AzResourceGroup -Name $group.groupName -Force
     }
 }
@@ -72,6 +72,6 @@ function Remove-CreatedRGshort {
 
 # Koniec skryptu
 Write-Host "-----Koniec skryptu"
-
-Write-Host "Naciśnij dowolny klawisz 🎹🎹🎹🎹🎹🎹"
+Write-Host ""
+Write-Host "🎹 Naciśnij dowolny klawisz"
 Write-Host -Object ('{0}' -f [System.Console]::ReadKey().Key.ToString());
