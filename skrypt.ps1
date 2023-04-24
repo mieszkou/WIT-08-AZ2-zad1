@@ -15,7 +15,7 @@ $Credentials = Get-Credential
 # oddczytanie zapisanych danych z pliku
 # $Credentials = Import-CliXml "credentials_office_wit.xml"
 
-Connect-AzAccount -Credential $Credentials
+$null = Connect-AzAccount -Credential $Credentials
 
 # ... sprawdzi liczbę dostępnych regionów
 $regionsAll  = Get-AzLocation 
